@@ -1,126 +1,37 @@
-body,
-div,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-table,
-th,
-td,
-form,
-fieldset,
-legend,
-textarea,
-input,
-select,
-textarea,
-button,
-article,
-aside,
-dialog,
-footer,
-header,
-section,
-footer,
-nav,
-figure,
-main {
-    margin: 0;
-    padding: 0;
-}
+@font-face{
+  font-family:'Quicksand';
+  font-weight:400;
+  src:url(../public/fonts/Quicksand-Regular.woff) format('woff');
+  }
+  
+  @font-face{
+  font-family:'Quicksand';
+  font-weight:500;
+  src:url(../public/fonts/Quicksand-Medium.woff) format('woff');
+  }
+  
+  @font-face{
+  font-family:'Quicksand';
+  font-weight:700;
+  src:url(../public/fonts/Quicksand-Bold.woff) format('woff');
+  }
 
-* {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
-}
+  body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p,table,th,td,form,fieldset,legend,textarea,input,select,textarea,button{margin:0;padding:0}
+  html,body{height:100%}
+  html{font-size:10px}
+  body,button,input,select,textarea,a{font-family:'Quicksand',sans-serif;color:$text-color}
+  h1,h2,h3,h4,h5,h6{font-weight:normal}
+  fieldset,li,img{border:0;vertical-align:top}
+  ul,ol{list-style:none}
+  button{overflow:visible;border:0;background-color:transparent;cursor:pointer}
+  button::-moz-focus-inner{padding:0;border:0}
+  address,caption,em{font-style:normal}
+  a,a:focus,a:active,a:hover{text-decoration:none}
+  table{border-collapse:collapse;border-spacing:0}
+  hr{display:none}
+  .blind,legend{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:1px;line-height:100px;white-space:nowrap}
 
-article,
-aside,
-dialog,
-footer,
-header,
-section,
-footer,
-nav,
-figure,
-main {
-    display: block
-}
-
-html,
-body {
-    height: 100%;
-    -webkit-text-size-adjust: none;
-    -ms-text-size-adjust: none
-}
-
-img,
-form,
-fieldset,
-svg,
-li {
-    border: 0;
-    vertical-align: top;
-}
-
-ul,
-ol {
-    list-style: none
-}
-
-button {
-    overflow: visible;
-    border: 0;
-    background-color: transparent;
-    cursor: pointer
-}
-
-button:disabled {
-    cursor: default;
-}
-
-button::-moz-focus-inner {
-    padding: 0;
-    margin: -1px;
-}
-
-input,
-button,
-select {
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-input[type=number] {
-  -moz-appearance:textfield;
-}
-
-address,
-caption,
-em {
-    font-style: normal
-}
-
-a,
-a:focus,
-a:active,
-a:hover {
-    text-decoration: none
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0
-}
+  .wrap{
+    max-width: 2560px;
+    margin: 0 auto;
+  }
