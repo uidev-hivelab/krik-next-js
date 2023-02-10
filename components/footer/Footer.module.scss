@@ -1,0 +1,66 @@
+.footer_link{
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem 4rem;
+  background-color: $gray-color;
+}
+
+.group{
+  max-width: calc(25% - 3rem);
+  &+.group{
+    margin-left: 4rem;
+  }
+}
+
+.title{
+  text-transform: uppercase;
+}
+
+.link,.store{
+  margin-top: 2rem;
+
+  .item{
+    &+.item{
+      margin-top: 0.5rem;
+    }
+
+    span{
+      display: inline-block;
+      padding: 0.5rem 0;
+    }
+  }
+}
+
+.store{
+  .item{
+    position: relative;
+    padding-left: 1rem;
+    &::before{
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background-color: $text-color;
+      transform: translateY(-50%);
+      content: '';
+    }
+  }
+}
+
+.ministry{
+  display: inline-block;
+  width: 18rem;
+  margin-top: 2rem;
+}
+
+.about{
+  margin-top: 2.5rem;
+
+  .item{
+    &+.item{
+      margin-top: 1rem;
+    }
+  }
+}

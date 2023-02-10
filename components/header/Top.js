@@ -6,39 +6,43 @@ import {
   BsReplyFill,
 } from "react-icons/bs";
 import { useState } from "react";
+import classNames from "classnames/bind";
 
-import styles from "./styles.module.scss";
+import styles from "./Header.module.scss";
+
+const cx = classNames.bind(styles);
 
 export default function Top() {
   const [loggedIn, setLoggedIn] = useState(true);
   return (
-    <div className={styles.top}>
-      <a href="tel:0356688339" className={styles.mobile_contact}>
+    <div className={cx('top')}>
+      <a href="tel:0356688339" className={cx('mobile_contact')}>
         <BsTelephoneOutboundFill />
         0356.688.339
       </a>
-      <div className={styles.status_login}>
+      <div className={cx('status_login')}>
         {loggedIn ? (
           <>
-            <Link href="/profile" className={styles.account}>
+            <Link href="/profile" className={cx('account')}>
               <BsPersonCircle />
               Quylv
             </Link>
-            <Link href="/" className={styles.account}>
+            <Link href="/" className={cx('account')}>
               <BsReplyFill />
               Đăng xuất
             </Link>
           </>
         ) : (
-          <Link href="/account" className={styles.account}>
+          <Link href="/account" className={cx('account')}>
             <BsPersonCircle />
             Tài khoản
           </Link>
         )}
       </div>
-      <button type="button" className={styles.cart}>
+      <button type="button" className={cx('cart')}>
         <BsFillBagFill />
-        Giỏ hàng
+        Giỏ hàng&nbsp;
+        <span className={cx('count')}>{'(0)'}</span>
       </button>
     </div>
   );

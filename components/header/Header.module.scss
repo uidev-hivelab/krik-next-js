@@ -1,0 +1,100 @@
+// Top Header
+.top{
+  display: flex;
+  align-items: center;
+  padding: 1rem $inner-padding;
+  background-color: $gray-color;
+  font-size: 1.4rem;  
+}
+
+.status_login{
+  margin-left: auto;
+}
+
+.mobile_contact,.account,.cart{
+  display: inline-flex;
+  align-items: center;
+  
+  svg{
+    margin-right: 0.5rem;
+    color: $icon-color;  
+  }
+}
+
+.mobile_contact{
+  font-weight: 500;
+}
+
+.account+.account{
+  margin-left: 3rem;
+}
+
+.cart{
+  margin-left: 3rem;
+}
+
+.count{
+  color: #ff0000;
+}
+
+// Main Menu
+.main_menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 8rem;
+  padding: 0 $inner-padding;
+}
+
+.logo{
+  a{
+    display: inline-block;
+  }
+  img{
+    width: 8.6rem;
+  }
+}
+
+.nav{
+  &_lst{
+    display: flex;
+  }
+
+  &_item{
+    &.nav_item{
+      margin-left: 0.5rem;
+    }
+
+    a{
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.search{
+  position: relative;
+  overflow: hidden;
+  width: 30rem;
+  border-radius: 2rem;
+  border: 1px solid $icon-color;
+  
+  .input_control{
+    width: 100%;
+    height: 4rem;
+    padding: 0 1.5rem;
+    border: none;
+    outline: none;
+  }
+}
+
+.btn_search{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 4rem;
+}

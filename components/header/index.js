@@ -1,11 +1,14 @@
+import classNames from "classnames/bind";
+
 import Top from './Top'
 import Menu from './Menu'
+import styles from './Header.module.scss';
 
-import styles from './styles.module.scss'
+const cx = classNames.bind(styles);
 
 export default function Header() {
   return (
-    <div className={styles.header}>
+    <div className={cx('header')}>
       <Top/>
       <Menu/>
     </div>
