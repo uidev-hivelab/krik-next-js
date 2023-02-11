@@ -1,0 +1,28 @@
+.thumb{
+  width: 100%;
+}
+
+.btn_prev,.btn_next{
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  &:disabled{
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  svg{
+    color: $icon-color;
+    font-size: 5.6rem;
+  }
+}
+
+.btn_prev{
+  left: 0;
+}
+
+.btn_next{
+  right: 0;
+}

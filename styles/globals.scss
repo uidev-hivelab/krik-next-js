@@ -2,42 +2,43 @@
   font-family:'Quicksand';
   font-weight:400;
   src:url(../public/fonts/Quicksand-Regular.woff) format('woff');
-  }
-  
-  @font-face{
-  font-family:'Quicksand';
-  font-weight:500;
-  src:url(../public/fonts/Quicksand-Medium.woff) format('woff');
-  }
-  
-  @font-face{
-  font-family:'Quicksand';
-  font-weight:700;
-  src:url(../public/fonts/Quicksand-Bold.woff) format('woff');
-  }
+}
 
-  body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p,table,th,td,form,fieldset,legend,textarea,input,select,textarea,button{margin:0;padding:0}
-  html,body{height:100%}
-  html{font-size:10px}
-  body,button,input,select,textarea,a{font-family:'Quicksand',sans-serif;font-size:1.4rem;color:$text-color}
-  h1,h2,h3,h4,h5,h6{font-weight:normal}
-  fieldset,li,img{border:0;vertical-align:top}
-  ul,ol{list-style:none}
-  button{overflow:visible;border:0;background-color:transparent;cursor:pointer}
-  button::-moz-focus-inner{padding:0;border:0}
-  address,caption,em{font-style:normal}
-  a,a:focus,a:active,a:hover{text-decoration:none}
-  table{border-collapse:collapse;border-spacing:0}
-  hr{display:none}
-  .blind,legend{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:1px;line-height:100px;white-space:nowrap}
+@font-face{
+font-family:'Quicksand';
+font-weight:500;
+src:url(../public/fonts/Quicksand-Medium.woff) format('woff');
+}
 
-  .wrap{
-    max-width: 2560px;
-    margin: 0 auto;
-  }
+@font-face{
+font-family:'Quicksand';
+font-weight:700;
+src:url(../public/fonts/Quicksand-Bold.woff) format('woff');
+}
 
-  .btn{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p,table,th,td,form,fieldset,legend,textarea,input,select,textarea,button{margin:0;padding:0}
+html,body{height:100%}
+html{font-size:10px}
+body,button,input,select,textarea,a{font-family:'Quicksand',sans-serif;font-size:1.4rem;color:$text-color}
+input{box-sizing:border-box;outline:none}
+h1,h2,h3,h4,h5,h6{font-weight:normal}
+fieldset,li,img{border:0;vertical-align:top}
+ul,ol{list-style:none}
+button{overflow:visible;border:0;background-color:transparent;cursor:pointer}
+button::-moz-focus-inner{padding:0;border:0}
+address,caption,em{font-style:normal}
+a,a:focus,a:active,a:hover{text-decoration:none}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:none}
+.blind,legend{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:1px;line-height:100px;white-space:nowrap}
+
+.wrap{
+  max-width: 2560px;
+  margin: 0 auto;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

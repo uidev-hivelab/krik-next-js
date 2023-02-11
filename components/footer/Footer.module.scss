@@ -1,12 +1,28 @@
+.social_area{
+  padding-bottom: 4rem;
+
+  .inner{
+    padding-top: 4rem;
+    border-top: 1px solid $gray-color;
+  }
+}
+
 .footer_link{
+  padding: 4rem 0;
+  background-color: $gray-color;
+
+}
+
+.inner{
   display: flex;
   justify-content: space-between;
-  padding: 4rem 4rem;
-  background-color: $gray-color;
+  max-width: 1440px;
+  padding: 0 4rem;
+  margin: 0 auto;
 }
 
 .group{
-  max-width: calc(25% - 3rem);
+  width: calc(25% - 3rem);
   &+.group{
     margin-left: 4rem;
   }
@@ -14,6 +30,56 @@
 
 .title{
   text-transform: uppercase;
+}
+
+.content{
+  margin-top: 1rem;
+}
+
+.phone_number{
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  svg{
+    margin-right: 0.5rem;
+  }
+  
+  a{
+    font-size: inherit;
+  }
+}
+
+.newsletter{
+  display: flex;
+  position: relative;
+
+  .input_control{
+    flex-grow: 1;
+    height: 3.6rem;
+    padding: 0 1rem;
+    border: 1px solid $icon-color;
+  }
+
+  .btn_register{
+    height: 3.6rem;
+    padding: 0 1rem;
+    background-color: $text-color;
+    color: #fff;
+  }
+}
+
+.social{
+  display: flex;
+  align-items: center;
+
+  .item+.item{
+    margin-left: 2rem;
+  }
+  svg{
+    font-size: 3.2rem;
+  }
 }
 
 .link,.store{
@@ -63,4 +129,10 @@
       margin-top: 1rem;
     }
   }
+}
+
+.fan_page{
+  display: block;
+  width: calc(100% - 2rem);
+  margin-left: auto;
 }
