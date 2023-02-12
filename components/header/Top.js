@@ -5,15 +5,17 @@ import {
   BsFillBagFill,
   BsReplyFill,
 } from "react-icons/bs";
-import { useState } from "react";
+// import { useState } from "react";
 import classNames from "classnames/bind";
+import { useSession, signIn, signOut } from "next-auth/react"
 
 import styles from "./Header.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function Top() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  // const [loggedIn, setLoggedIn] = useState(true);
+  const { data: session } = useSession();
   return (
     <div className={cx('top')}>
       <a href="tel:0356688339" className={cx('mobile_contact')}>
@@ -21,22 +23,22 @@ export default function Top() {
         0356.688.339
       </a>
       <div className={cx('status_login')}>
-        {loggedIn ? (
+        {session ? (
           <>
             <Link href="/profile" className={cx('account')}>
               <BsPersonCircle />
-              Quylv
+              {session.user.name}
             </Link>
-            <Link href="/" className={cx('account')}>
+            <button className={cx('account')} onClick={() => signOut()}>
               <BsReplyFill />
               Đăng xuất
-            </Link>
+            </button>
           </>
         ) : (
-          <Link href="/account" className={cx('account')}>
+          <button className={cx('account')} onClick={() => signIn()}>
             <BsPersonCircle />
             Tài khoản
-          </Link>
+          </button>
         )}
       </div>
       <button type="button" className={cx('cart')}>
