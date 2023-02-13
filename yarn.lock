@@ -744,6 +744,13 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
+"@next-auth/dynamodb-adapter@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@next-auth/dynamodb-adapter/-/dynamodb-adapter-3.0.0.tgz#48d32ef2f8310748d759e17659423a4bb975d463"
+  integrity sha512-NNlZkGEKxVVW9Q0ezU7WUMClTkmenNE4sR8XkpVXmV81nc+bdq+f6KXosFnRXCHM3KKAofDB6OdMxSNBnoDC4w==
+  dependencies:
+    uuid "^9.0.0"
+
 "@next-auth/mongodb-adapter@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@next-auth/mongodb-adapter/-/mongodb-adapter-1.1.1.tgz#255581e66988956bafea555497e92690ad6086fe"
@@ -1177,7 +1184,7 @@ nanoid@^3.3.4:
 
 next-auth@^4.19.2:
   version "4.19.2"
-  resolved "https://registry.npmjs.org/next-auth/-/next-auth-4.19.2.tgz"
+  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-4.19.2.tgz#8dbdc4886d4f006e7c67c77ab56e0aec5693064d"
   integrity sha512-6V2YG3IJQVhgCAH7mvT3yopTW92gMdUrcwGX7NQ0dCreT/+axGua/JmVdarjec0C/oJukKpIYRgjMlV+L5ZQOQ==
   dependencies:
     "@babel/runtime" "^7.16.3"
@@ -1487,6 +1494,11 @@ uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
+uuid@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
+  integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
 webidl-conversions@^7.0.0:
   version "7.0.0"
