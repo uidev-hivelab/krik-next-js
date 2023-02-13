@@ -6,9 +6,9 @@ import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
-export default function Header() {
+export default function Header({className = ''}) {
   return (
-    <div className={cx('header')}>
+    <div className={cx('header',`${className}`)}>
       <Top/>
       <Menu/>
     </div>
