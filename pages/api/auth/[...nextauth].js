@@ -38,9 +38,9 @@ export default NextAuth({
     //   from: 'NextAuth.js <no-reply@example.com>'
     // }),
   ],
-  pages: {
-    signIn: "/signin"
-  },
+  // pages: {
+  //   signIn: "/signin"
+  // },
   session: {
     strategy: "jwt",
   },
