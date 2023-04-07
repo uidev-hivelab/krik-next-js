@@ -1,0 +1,12 @@
+.btn {
+  &_login {
+    padding: 1rem 2rem;
+    background-color: $text-color;
+    border-radius: 0.5rem;
+    color: $white-color;
+
+    &_social {
+      flex: 1;
+    }
+  }
+}

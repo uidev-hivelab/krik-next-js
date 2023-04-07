@@ -28,11 +28,12 @@
       height: 2px;
       background-color: transparent;
       transition: 0.2s;
-      content: '';
+      content: "";
     }
   }
 
-  &_active, &_btn:hover {
+  &_active,
+  &_btn:hover {
     &::after {
       background-color: #10a2f7;
     }
@@ -43,15 +44,32 @@
   }
 }
 
-.input {
-  &_form {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: none;
-    border-bottom: 1px solid #ccc;
+.btn {
+  &_wrap {
+    margin-top: 2rem;
+  }
+}
 
-    &+.input_form {
-      margin-top: 1.5rem;
-    }
+.form {
+  &_control {
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+.link_forgot {
+  color: $blue-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.login {
+  &_with {
+    margin-top: 1rem;
+  }
+  &_list {
+    display: flex;
   }
 }

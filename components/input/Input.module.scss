@@ -1,0 +1,19 @@
+.input {
+  &_wrap {
+    & + .input_wrap {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &_form {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &_message {
+    margin-top: 0.5rem;
+    color: $red-color;
+  }
+}
