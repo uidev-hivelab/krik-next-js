@@ -67,9 +67,11 @@
 
 .login {
   &_with {
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
   &_list {
     display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
   }
 }

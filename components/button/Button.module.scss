@@ -1,12 +1,39 @@
 .btn {
-  &_login {
+  &_login,
+  &_sign_up {
     padding: 1rem 2rem;
     background-color: $text-color;
     border-radius: 0.5rem;
     color: $white-color;
+  }
 
+  &_login {
     &_social {
+      display: flex;
+      align-items: center;
       flex: 1;
+      height: 4rem;
+      gap: 2rem;
+      color: $white-color;
+
+      &.btn_facebook {
+        background-color: #346da6;
+      }
+
+      &.btn_google {
+        background-color: #db4437;
+      }
+
+      img {
+        width: auto;
+        height: 100%;
+      }
     }
+  }
+
+  &_icon {
+    height: 100%;
+    border-right: 1px solid #fff;
+    box-sizing: border-box;
   }
 }
