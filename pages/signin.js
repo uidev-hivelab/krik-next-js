@@ -61,7 +61,7 @@ export default function SignIn({ providers }) {
       .email("Email không hợp lệ"),
     password: Yup.string()
       .required("Trường này là bắt buộc")
-      .min(3, "Mật khẩu phải dài hơn 3 ký tự")
+      .min(8, "Mật khẩu phải dài hơn 8 ký tự")
       .max(16, "Mật khẩu phải ngắn hơn 16 ký tự"),
     retype_password: Yup.string()
       .required("Trường này là bắt buộc")
