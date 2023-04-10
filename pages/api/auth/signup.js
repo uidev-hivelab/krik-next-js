@@ -33,7 +33,7 @@ handler.post(async (req, res) => {
       id: addUser._id.toString(),
     });
     console.log(activation_token);
-    res.send(createActivationToken);
+    res.send(addUser);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
