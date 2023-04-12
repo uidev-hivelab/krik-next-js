@@ -4,10 +4,11 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import { getProviders, signIn } from "next-auth/react";
+import axios from "axios";
 import styles from "../styles/SignIn.module.scss";
 import Header from "@/components/header";
 import Input from "@/components/input";
-import Button from "../components/button";
+import Button from "@/components/button";
 
 const cx = classNames.bind(styles);
 const nameTab = [
@@ -25,22 +26,27 @@ const nameTab = [
 const initialValues = {
   login_name: "",
   login_password: "",
-  full_name: "",
+  name: "",
   email: "",
   password: "",
   retype_password: "",
+  success: "",
+  error: "",
 };
 
 export default function SignIn({ providers }) {
   const [tabActive, setTabActive] = useState("tab_signin");
   const [user, setUser] = useState(initialValues);
+  const [loading, setLoading] = useState(false);
   const {
     login_name,
     login_password,
-    full_name,
+    name,
     email,
     password,
     retype_password,
+    success,
+    error,
   } = user;
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +57,7 @@ export default function SignIn({ providers }) {
     login_password: Yup.string().required("Trường này là bắt buộc"),
   });
   const registerValidation = Yup.object({
-    full_name: Yup.string()
+    name: Yup.string()
       .required("Trường này là bắt buộc")
       .min(3, "Tên đăng nhập phải dài hơn 3 ký tự")
       .max(16, "Tên đăng nhập phải ngắn hơn 16 ký tự")
@@ -67,6 +73,22 @@ export default function SignIn({ providers }) {
       .required("Trường này là bắt buộc")
       .oneOf([Yup.ref("password")], "Mật khẩu không trùng khớp"),
   });
+  const signUpHandler = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.post("/api/auth/signup", {
+        name,
+        email,
+        password,
+      });
+      setUser({ ...user, error: "", success: data.message });
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setUser({ ...user, success: "", error: error.response.data.message });
+      // setUser({ ...user, success: "", error: "12345" });
+    }
+  };
   return (
     <>
       <Header className="box_shadow" />
@@ -95,10 +117,12 @@ export default function SignIn({ providers }) {
                 initialValues={{
                   login_name,
                   login_password,
-                  full_name,
+                  name,
                   email,
                   password,
                   retype_password,
+                  success,
+                  error,
                 }}
                 validationSchema={loginValidation}
               >
@@ -142,51 +166,66 @@ export default function SignIn({ providers }) {
               </div>
             </>
           ) : (
-            <Formik
-              enableReinitialize
-              initialValues={{
-                login_name,
-                login_password,
-                full_name,
-                email,
-                password,
-                retype_password,
-              }}
-              validationSchema={registerValidation}
-            >
-              {(form) => (
-                <Form>
-                  <Input
-                    type="text"
-                    name="full_name"
-                    placeholder="Tên đăng nhập"
-                    onChange={handleChange}
-                  />
-                  <Input
-                    type="text"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                  />
-                  <Input
-                    type="password"
-                    name="password"
-                    placeholder="Mật khẩu"
-                    autoComplete="off"
-                    onChange={handleChange}
-                  />
-                  <Input
-                    type="password"
-                    name="retype_password"
-                    placeholder="Nhập lại mật khẩu"
-                    autoComplete="off"
-                    onChange={handleChange}
-                  />
-                  <div className={cx("btn_wrap")}></div>
-                  <Button type="submit" text="Đăng ký" classes="btn_sign_up" />
-                </Form>
-              )}
-            </Formik>
+            <>
+              <Formik
+                enableReinitialize
+                initialValues={{
+                  login_name,
+                  login_password,
+                  name,
+                  email,
+                  password,
+                  retype_password,
+                  success,
+                  error,
+                }}
+                validationSchema={registerValidation}
+                onSubmit={() => {
+                  signUpHandler();
+                }}
+              >
+                {(form) => (
+                  <Form>
+                    <Input
+                      type="text"
+                      name="name"
+                      placeholder="Tên đăng nhập"
+                      onChange={handleChange}
+                    />
+                    <Input
+                      type="text"
+                      name="email"
+                      placeholder="Email"
+                      onChange={handleChange}
+                    />
+                    <Input
+                      type="password"
+                      name="password"
+                      placeholder="Mật khẩu"
+                      autoComplete="off"
+                      onChange={handleChange}
+                    />
+                    <Input
+                      type="password"
+                      name="retype_password"
+                      placeholder="Nhập lại mật khẩu"
+                      autoComplete="off"
+                      onChange={handleChange}
+                    />
+                    <div className={cx("btn_wrap")}></div>
+                    <Button
+                      type="submit"
+                      text="Đăng ký"
+                      classes="btn_sign_up"
+                    />
+                  </Form>
+                )}
+              </Formik>
+              <div>
+                {success && <span>{success}</span>}
+                {error && <span>{error}</span>}
+              </div>
+            </>
           )}
         </div>
       </div>

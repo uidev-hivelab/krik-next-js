@@ -8,7 +8,7 @@ import { sendEmail } from "../../../utils/sendEmails";
 
 const handler = nextConnect();
 handler.post(async (req, res) => {
-  // res.send("Hello");
+  console.log("1234");
   try {
     await db.connectDb();
     const { name, email, password } = req.body;
@@ -35,7 +35,11 @@ handler.post(async (req, res) => {
     });
     const url = `${process.env.BASE_URL}/activate/${activation_token}`;
     sendEmail(name, email, url, "", "Activate your account");
-    // res.send(url);
+    await db.disconnectDb();
+    res.json({
+      message:
+        "Đăng ký thành công. Vui lòng xác nhận Email để sử dụng tài khoản",
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
