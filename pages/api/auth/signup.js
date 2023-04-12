@@ -8,7 +8,6 @@ import { sendEmail } from "../../../utils/sendEmails";
 
 const handler = nextConnect();
 handler.post(async (req, res) => {
-  console.log("1234");
   try {
     await db.connectDb();
     const { name, email, password } = req.body;
@@ -38,7 +37,7 @@ handler.post(async (req, res) => {
     await db.disconnectDb();
     res.json({
       message:
-        "Đăng ký thành công. Vui lòng xác nhận Email để sử dụng tài khoản",
+        "Đăng ký thành công. Vui lòng xác nhận Email để sử dụng tài khoản.",
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

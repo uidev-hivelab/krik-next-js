@@ -9,6 +9,7 @@ import styles from "../styles/SignIn.module.scss";
 import Header from "@/components/header";
 import Input from "@/components/input";
 import Button from "@/components/button";
+import BarLoader from "@/components/loader";
 
 const cx = classNames.bind(styles);
 const nameTab = [
@@ -86,11 +87,11 @@ export default function SignIn({ providers }) {
     } catch (error) {
       setLoading(false);
       setUser({ ...user, success: "", error: error.response.data.message });
-      // setUser({ ...user, success: "", error: "12345" });
     }
   };
   return (
-    <>
+    <div className="wrap">
+      {loading && <BarLoader />}
       <Header className="box_shadow" />
       <div className={cx("tab_wrap")}>
         <div className={cx("tab_control")}>
@@ -212,24 +213,31 @@ export default function SignIn({ providers }) {
                       autoComplete="off"
                       onChange={handleChange}
                     />
-                    <div className={cx("btn_wrap")}></div>
-                    <Button
-                      type="submit"
-                      text="Đăng ký"
-                      classes="btn_sign_up"
-                    />
+                    <div className={cx("btn_wrap")}>
+                      <Button
+                        type="submit"
+                        text="Đăng ký"
+                        classes="btn_sign_up"
+                      />
+                      {(success || error) && (
+                        <div className={cx("form_message")}>
+                          {success && (
+                            <strong className="text_success">{success}</strong>
+                          )}
+                          {error && (
+                            <strong className="text_error">{error}</strong>
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </Form>
                 )}
               </Formik>
-              <div>
-                {success && <span>{success}</span>}
-                {error && <span>{error}</span>}
-              </div>
             </>
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
