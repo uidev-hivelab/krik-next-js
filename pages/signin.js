@@ -10,6 +10,7 @@ import Header from "@/components/header";
 import Input from "@/components/input";
 import Button from "@/components/button";
 import BarLoader from "@/components/loader";
+import { Router } from "next/router";
 
 const cx = classNames.bind(styles);
 const nameTab = [
@@ -33,6 +34,7 @@ const initialValues = {
   retype_password: "",
   success: "",
   error: "",
+  login_error: "",
 };
 
 export default function SignIn({ providers }) {
@@ -48,6 +50,7 @@ export default function SignIn({ providers }) {
     retype_password,
     success,
     error,
+    login_error,
   } = user;
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -82,11 +85,28 @@ export default function SignIn({ providers }) {
         email,
         password,
       });
-      setUser({ ...user, error: "", success: data.message });
+      setUser({ ...initialValues, error: "", success: data.message });
       setLoading(false);
     } catch (error) {
       setLoading(false);
       setUser({ ...user, success: "", error: error.response.data.message });
+    }
+  };
+  const signInHandler = async () => {
+    setLoading(true);
+    let options = {
+      redirect: false,
+      name: login_name,
+      password: login_password,
+    };
+    const res = await signIn("credentials", options);
+    setUser({ ...user, success: "", error: "" });
+    setLoading(false);
+    if (res?.error) {
+      setLoading(false);
+      setUser({ ...user, login_error: res?.error });
+    } else {
+      return Router.push("/");
     }
   };
   return (
@@ -124,8 +144,12 @@ export default function SignIn({ providers }) {
                   retype_password,
                   success,
                   error,
+                  login_error,
                 }}
                 validationSchema={loginValidation}
+                onSubmit={() => {
+                  signInHandler();
+                }}
               >
                 {(form) => (
                   <Form>
@@ -142,8 +166,18 @@ export default function SignIn({ providers }) {
                       autoComplete="on"
                       onChange={handleChange}
                     />
-                    <div className={cx("btn_wrap")}></div>
-                    <Button type="text" text="Đăng nhập" classes="btn_login" />
+                    <div className={cx("btn_wrap")}>
+                      <Button
+                        type="text"
+                        text="Đăng nhập"
+                        classes="btn_login"
+                      />
+                      <div className={cx("form_message")}>
+                        {login_error && (
+                          <strong className="text_error">{login_error}</strong>
+                        )}
+                      </div>
+                    </div>
                   </Form>
                 )}
               </Formik>
@@ -179,6 +213,7 @@ export default function SignIn({ providers }) {
                   retype_password,
                   success,
                   error,
+                  login_error,
                 }}
                 validationSchema={registerValidation}
                 onSubmit={() => {
