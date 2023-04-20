@@ -17,8 +17,12 @@ handler.post(async (req, res) => {
     if (!validateEmail(email)) {
       return res.status(400).json({ message: "Email không hợp lệ" });
     }
-    const user = await User.findOne({ email });
-    if (user) {
+    const userName = await User.findOne({ name });
+    if (userName) {
+      return res.status(400).json({ message: "Tên đăng nhập đã tồn tại" });
+    }
+    const userEmail = await User.findOne({ email });
+    if (userEmail) {
       return res.status(400).json({ message: "Email đã tồn tại" });
     }
     if (password.length < 6 || password.length > 16) {

@@ -8,9 +8,9 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "./lib/mongodb.ts";
-// import User from "../../../models/User";
 import bcrypt from "bcrypt";
 import db from "../../../utils/db";
+import User from "../../../models/User";
 db.connectDb();
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
@@ -24,11 +24,10 @@ export default NextAuth({
       async authorize(credentials, req) {
         const name = credentials.name;
         const password = credentials.password;
-
-        // const user = { name: credentials.name, password: credentials.password };
-        // console.log(user);
-        if (name) {
-          return SignInUser({ name, password });
+        const userName = await User.findOne({ name });
+        if (userName) {
+          console.log(userName);
+          return SignInUser({ userName, password });
         } else {
           throw new Error("Tài khoản không tồn tại");
         }
@@ -61,6 +60,14 @@ export default NextAuth({
     //   from: 'NextAuth.js <no-reply@example.com>'
     // }),
   ],
+  callbacks: {
+    async session({ session, token }) {
+      let user = await User.findById(token.sub);
+      session.user.id = token.sub || user._id.toString();
+      session.user.role = user.role || "user";
+      return session;
+    },
+  },
   pages: {
     signIn: "/signin",
   },
@@ -70,13 +77,14 @@ export default NextAuth({
   secret: process.env.JWT_SECRET,
 });
 
-const SignInUser = async ({ name, password }) => {
-  if (!password) {
+const SignInUser = async ({ userName, password }) => {
+  console.log(userName);
+  if (!userName.password) {
     throw new Error("Vui lòng điền mật khẩu");
   }
-  const testPassword = await bcrypt.compare(password, user.password);
+  const testPassword = await bcrypt.compare(password, userName.password);
   if (!testPassword) {
     throw new Error("Tên đăng nhâp hoặc mật khẩu sai");
   }
-  return user;
+  return userName;
 };

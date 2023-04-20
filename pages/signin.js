@@ -5,12 +5,12 @@ import * as Yup from "yup";
 import Link from "next/link";
 import { getProviders, signIn } from "next-auth/react";
 import axios from "axios";
+import Router from "next/router";
 import styles from "../styles/SignIn.module.scss";
 import Header from "@/components/header";
 import Input from "@/components/input";
 import Button from "@/components/button";
 import BarLoader from "@/components/loader";
-import { Router } from "next/router";
 
 const cx = classNames.bind(styles);
 const nameTab = [
@@ -187,16 +187,21 @@ export default function SignIn({ providers }) {
                 </Link>
                 <p className={cx("login_with")}>Hoặc đăng nhập với</p>
                 <div className={cx("login_list")}>
-                  {providers.map((provider) => (
-                    <Button
-                      key={provider.id}
-                      type="button"
-                      text={`Đăng nhập bằng ` + provider.name}
-                      classes="btn_login_social"
-                      icon={provider.id}
-                      onClick={() => signIn(provider.id)}
-                    />
-                  ))}
+                  {providers.map((provider) => {
+                    if (provider.id === "credentials") {
+                      return;
+                    }
+                    return (
+                      <Button
+                        key={provider.id}
+                        type="button"
+                        text={`Đăng nhập bằng ` + provider.name}
+                        classes="btn_login_social"
+                        icon={provider.id}
+                        onClick={() => signIn(provider.id)}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </>
