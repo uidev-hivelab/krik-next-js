@@ -192,7 +192,7 @@ export default function SignIn({ providers, csrfToken, callbackUrl }) {
                 )}
               </Formik>
               <div className={cx("form_control")}>
-                <Link href="/forgot" className={cx("link_forgot")}>
+                <Link href="/auth/forgot" className={cx("link_forgot")}>
                   Quên mật khẩu?
                 </Link>
                 <p className={cx("login_with")}>Hoặc đăng nhập với</p>

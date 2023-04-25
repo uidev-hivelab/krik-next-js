@@ -26,7 +26,6 @@ export default NextAuth({
         const password = credentials.password;
         const userName = await User.findOne({ name });
         if (userName) {
-          console.log(userName);
           return SignInUser({ userName, password });
         } else {
           throw new Error("Tài khoản không tồn tại");
@@ -78,7 +77,6 @@ export default NextAuth({
 });
 
 const SignInUser = async ({ userName, password }) => {
-  console.log(userName);
   if (!userName.password) {
     throw new Error("Vui lòng điền mật khẩu");
   }

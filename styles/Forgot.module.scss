@@ -1,0 +1,30 @@
+.forgot {
+  &_wrap {
+    max-width: 600px;
+    margin: 100px auto 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  &_title {
+    border-bottom: 2px solid #cccccc63;
+    box-shadow: 0 1px 3px rgba(146, 146, 146, 0.14);
+    position: relative;
+    flex: 1;
+    font-size: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  &_content {
+    padding: 2rem;
+  }
+}
+
+.btn_wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

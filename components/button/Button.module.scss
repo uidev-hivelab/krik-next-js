@@ -1,6 +1,7 @@
 .btn {
   &_login,
-  &_sign_up {
+  &_sign_up,
+  &_forgot {
     padding: 1rem 2rem;
     background-color: $text-color;
     border-radius: 0.5rem;

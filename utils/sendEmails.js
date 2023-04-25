@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer";
 import { google } from "googleapis";
 import { activateEmailTemplate } from "../email/activateEmailTemplate";
+import { resetPasswordEmailTemplate } from "../email/resetPasswordEmailTemplate";
 
 const { OAuth2 } = google.auth;
 const OAUTH_PLAYGROUND = "https://developers.google.com/oauthplayground";
