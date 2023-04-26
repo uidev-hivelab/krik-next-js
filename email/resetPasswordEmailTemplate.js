@@ -1,4 +1,4 @@
-export const resetPasswordEmailTemplate = () => {
+export const resetPasswordEmailTemplate = (url) => {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="width:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
   
@@ -408,7 +408,7 @@ export const resetPasswordEmailTemplate = () => {
   <w:anchorlock></w:anchorlock>
   <center style='color:#ffffff; font-family:helvetica, "helvetica neue", arial, verdana, sans-serif; font-size:20px; font-weight:400; line-height:20px; mso-text-raise:1px'>Reset Password</center>
   </v:roundrect></a>
-  <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#7c72dc;background:#333333;border-width:1px;display:inline-block;border-radius:2px;width:auto;mso-border-alt:10px;mso-hide:all"><a href="http://localhost:3000/" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:20px;display:inline-block;background:#333333;border-radius:2px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-weight:normal;font-style:normal;line-height:24px;width:auto;text-align:center;padding:15px 25px 15px 25px;border-color:#333333">Reset Password</a></span><!--<![endif]--></td>
+  <![endif]--><!--[if !mso]><!-- --><span class="msohide es-button-border" style="border-style:solid;border-color:#7c72dc;background:#333333;border-width:1px;display:inline-block;border-radius:2px;width:auto;mso-border-alt:10px;mso-hide:all"><a href="${url}" class="es-button" target="_blank" style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:20px;display:inline-block;background:#333333;border-radius:2px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;font-weight:normal;font-style:normal;line-height:24px;width:auto;text-align:center;padding:15px 25px 15px 25px;border-color:#333333">Reset Password</a></span><!--<![endif]--></td>
                                 </tr>
                               </table>
                             </td>

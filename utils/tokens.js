@@ -5,9 +5,8 @@ export const createActivationToken = (payload) => {
   });
 };
 
-// import jwt from "jsonwebtoken";
-// export const createResetToken = (payload) => {
-//   return jwt.sign(payload, process.env.RESET_TOKEN_SECRET, {
-//     expiresIn: "1h",
-//   });
-// };
+export const createResetToken = (payload) => {
+  return jwt.sign(payload, process.env.RESET_TOKEN_SECRET, {
+    expiresIn: "1h",
+  });
+};

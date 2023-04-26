@@ -3,6 +3,7 @@ import db from "../../../utils/db";
 import User from "../../../models/User";
 import { createResetToken } from "../../../utils/tokens";
 import { sendEmail } from "../../../utils/sendEmails";
+import { resetPasswordEmailTemplate } from "../../../email/resetPasswordEmailTemplate";
 
 const handler = nextConnect();
 handler.post(async (req, res) => {
@@ -17,11 +18,17 @@ handler.post(async (req, res) => {
       id: userEmail._id.toString(),
     });
     const url = `${process.env.BASE_URL}/auth/reset/${user_id}`;
-    sendEmail("", email, url, "", "Accept reset password");
+    sendEmail(
+      "",
+      email,
+      url,
+      "",
+      "Reset your password",
+      resetPasswordEmailTemplate
+    );
     await db.disconnectDb();
     res.json({
-      message:
-        "Đăng ký thành công. Vui lòng xác nhận Email để sử dụng tài khoản.",
+      message: "Một email đã được gửi tới bạn. Nó sử dụng để reset password.",
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

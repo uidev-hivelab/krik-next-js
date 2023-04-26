@@ -68,16 +68,16 @@ export default function SignIn({ providers, csrfToken, callbackUrl }) {
   const registerValidation = Yup.object({
     name: Yup.string()
       .required("Trường này là bắt buộc")
-      .min(3, "Tên đăng nhập phải dài hơn 3 ký tự")
-      .max(16, "Tên đăng nhập phải ngắn hơn 16 ký tự")
+      .min(3, "Tên đăng nhập phải dài tối thiểu 3 ký tự")
+      .max(16, "Tên đăng nhập dài tối đa 16 ký tự")
       .matches(/^[a-zA-Z0-9]/, "Tên đăng nhập không chứa ký tự đặc biệt"),
     email: Yup.string()
       .required("Trường này là bắt buộc")
       .email("Email không hợp lệ"),
     password: Yup.string()
       .required("Trường này là bắt buộc")
-      .min(8, "Mật khẩu phải dài hơn 8 ký tự")
-      .max(16, "Mật khẩu phải ngắn hơn 16 ký tự"),
+      .min(8, "Mật khẩu phải dài tối thiểu 8 ký tự")
+      .max(16, "Mật khẩu dài tối đa 16 ký tự"),
     retype_password: Yup.string()
       .required("Trường này là bắt buộc")
       .oneOf([Yup.ref("password")], "Mật khẩu không trùng khớp"),

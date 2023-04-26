@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classNames from "classnames/bind";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import styles from "../../styles/Forgot.module.scss";
+import styles from "../../../styles/Forgot.module.scss";
 import Header from "@/components/header";
 import Input from "@/components/input";
 import Button from "@/components/button";
@@ -11,17 +11,22 @@ import axios from "axios";
 
 const cx = classNames.bind(styles);
 
-export default function forgot() {
-  const [email, setEmail] = useState("");
+export default function reset() {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const emailValidation = Yup.object({
-    email: Yup.string()
-      .required("Cần phải nhập email để reset password")
-      .email("Email không hợp lệ"),
+  const resetPasswordValidation = Yup.object({
+    password: Yup.string()
+      .required("Trường này là bắt buộc")
+      .min(8, "Mật khẩu phải dài tối tiểu 8 ký tự")
+      .max(16, "Mật khẩu dài tối đa 16 ký tự"),
+    confirmPassword: Yup.string()
+      .required("Trường này là bắt buộc")
+      .oneOf([Yup.ref("password")], "Mật khẩu không trùng khớp"),
   });
-  const forgotHandler = async () => {
+  const resetHandler = async () => {
     try {
       setLoading(true);
       const { data } = await axios.post("/api/auth/forgot", { email });
@@ -39,25 +44,32 @@ export default function forgot() {
       {loading && <BarLoader />}
       <Header className="box_shadow" />
       <div className={cx("forgot_wrap")}>
-        <div className={cx("forgot_title")}>QUÊN MẬT KHẨU</div>
+        <div className={cx("forgot_title")}>ĐẶT LẠI MẬT KHẨU</div>
         <div className={cx("forgot_content")}>
           <Formik
             enableReinitialize
             initialValues={{
-              email,
+              password,
+              confirmPassword,
             }}
-            validationSchema={emailValidation}
+            validationSchema={resetPasswordValidation}
             onSubmit={() => {
-              forgotHandler();
+              resetHandler();
             }}
           >
             {(form) => (
               <Form>
                 <Input
-                  type="text"
-                  name="email"
-                  placeholder="Nhập email của bạn"
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="password"
+                  name="password"
+                  placeholder="Nhập mật khẩu mới"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <Input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Nhập lại mật khẩu mới"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <div className={cx("btn_wrap")}>
                   <Button type="submit" text="Xác nhận" classes="btn_forgot" />
