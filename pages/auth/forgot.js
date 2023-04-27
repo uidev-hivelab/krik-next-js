@@ -18,7 +18,7 @@ export default function forgot() {
   const [success, setSuccess] = useState("");
   const emailValidation = Yup.object({
     email: Yup.string()
-      .required("Cần phải nhập email để reset password")
+      .required("Cần phải nhập email để đặt lại mật khẩu")
       .email("Email không hợp lệ"),
   });
   const forgotHandler = async () => {
@@ -28,6 +28,7 @@ export default function forgot() {
       setError("");
       setSuccess(data.message);
       setLoading(false);
+      setEmail("");
     } catch (error) {
       setLoading(false);
       setSuccess("");

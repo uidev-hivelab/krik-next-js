@@ -28,7 +28,8 @@ handler.post(async (req, res) => {
     );
     await db.disconnectDb();
     res.json({
-      message: "Một email đã được gửi tới bạn. Nó sử dụng để reset password.",
+      message:
+        "Một email đã được gửi tới bạn. Hãy xác nhận để đặt lại mật khẩu.",
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

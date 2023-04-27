@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import classNames from "classnames/bind";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import jwt from "jsonwebtoken";
 import styles from "../../../styles/Forgot.module.scss";
 import Header from "@/components/header";
 import Input from "@/components/input";
 import Button from "@/components/button";
 import BarLoader from "@/components/loader";
-import axios from "axios";
 
 const cx = classNames.bind(styles);
 
-export default function reset() {
+export default function reset({ user_id }) {
+  console.log(user_id);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -63,12 +65,14 @@ export default function reset() {
                   type="password"
                   name="password"
                   placeholder="Nhập mật khẩu mới"
+                  autoComplete="off"
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <Input
                   type="password"
                   name="confirmPassword"
                   placeholder="Nhập lại mật khẩu mới"
+                  autoComplete="off"
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <div className={cx("btn_wrap")}>
@@ -89,4 +93,15 @@ export default function reset() {
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { query } = context;
+  const token = query.token;
+  const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
+  return {
+    props: {
+      user_id: user_id.id,
+    },
+  };
 }
