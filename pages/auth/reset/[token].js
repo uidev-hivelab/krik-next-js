@@ -4,6 +4,8 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import jwt from "jsonwebtoken";
+import { getSession, signIn } from "next-auth/react";
+import { Router } from "next/router";
 import styles from "../../../styles/Forgot.module.scss";
 import Header from "@/components/header";
 import Input from "@/components/input";
@@ -13,7 +15,6 @@ import BarLoader from "@/components/loader";
 const cx = classNames.bind(styles);
 
 export default function reset({ user_id }) {
-  console.log(user_id);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -31,10 +32,20 @@ export default function reset({ user_id }) {
   const resetHandler = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post("/api/auth/forgot", { email });
-      setError("");
-      setSuccess(data.message);
-      setLoading(false);
+      const { data } = await axios.put("/api/auth/reset", {
+        user_id,
+        password,
+      });
+      let options = {
+        redirect: false,
+        name: data.name,
+        password: password,
+      };
+      await signIn("credentials", options);
+      // setError("");
+      // setLoading(false);
+      window.location.reload(true);
+      // Router.push("/");
     } catch (error) {
       setLoading(false);
       setSuccess("");
@@ -96,7 +107,15 @@ export default function reset({ user_id }) {
 }
 
 export async function getServerSideProps(context) {
-  const { query } = context;
+  const { query, req } = context;
+  const session = await getSession({ req });
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+      },
+    };
+  }
   const token = query.token;
   const user_id = jwt.verify(token, process.env.RESET_TOKEN_SECRET);
   return {
