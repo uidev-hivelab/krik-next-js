@@ -1,19 +1,22 @@
-.social_area{
+.footer {
+  margin-top: 8rem;
+}
+
+.social_area {
   padding-bottom: 4rem;
 
-  .inner{
+  .inner {
     padding-top: 4rem;
     border-top: 1px solid $gray-color;
   }
 }
 
-.footer_link{
+.footer_link {
   padding: 4rem 0;
   background-color: $gray-color;
-
 }
 
-.inner{
+.inner {
   display: flex;
   justify-content: space-between;
   max-width: 1440px;
@@ -21,48 +24,48 @@
   margin: 0 auto;
 }
 
-.group{
+.group {
   width: calc(25% - 3rem);
-  &+.group{
+  & + .group {
     margin-left: 4rem;
   }
 }
 
-.title{
+.title {
   text-transform: uppercase;
 }
 
-.content{
+.content {
   margin-top: 1rem;
 }
 
-.phone_number{
+.phone_number {
   display: flex;
   align-items: center;
   font-size: 1.8rem;
   font-weight: 500;
 
-  svg{
+  svg {
     margin-right: 0.5rem;
   }
-  
-  a{
+
+  a {
     font-size: inherit;
   }
 }
 
-.newsletter{
+.newsletter {
   display: flex;
   position: relative;
 
-  .input_control{
+  .input_control {
     flex-grow: 1;
     height: 3.6rem;
     padding: 0 1rem;
     border: 1px solid $icon-color;
   }
 
-  .btn_register{
+  .btn_register {
     height: 3.6rem;
     padding: 0 1rem;
     background-color: $text-color;
@@ -70,38 +73,39 @@
   }
 }
 
-.social{
+.social {
   display: flex;
   align-items: center;
 
-  .item+.item{
+  .item + .item {
     margin-left: 2rem;
   }
-  svg{
+  svg {
     font-size: 3.2rem;
   }
 }
 
-.link,.store{
+.link,
+.store {
   margin-top: 2rem;
 
-  .item{
-    &+.item{
+  .item {
+    & + .item {
       margin-top: 0.5rem;
     }
 
-    span{
+    span {
       display: inline-block;
       padding: 0.5rem 0;
     }
   }
 }
 
-.store{
-  .item{
+.store {
+  .item {
     position: relative;
     padding-left: 1rem;
-    &::before{
+    &::before {
       position: absolute;
       top: 50%;
       left: 0;
@@ -110,28 +114,28 @@
       border-radius: 50%;
       background-color: $text-color;
       transform: translateY(-50%);
-      content: '';
+      content: "";
     }
   }
 }
 
-.ministry{
+.ministry {
   display: inline-block;
   width: 18rem;
   margin-top: 2rem;
 }
 
-.about{
+.about {
   margin-top: 2.5rem;
 
-  .item{
-    &+.item{
+  .item {
+    & + .item {
       margin-top: 1rem;
     }
   }
 }
 
-.fan_page{
+.fan_page {
   display: block;
   width: calc(100% - 2rem);
   margin-left: auto;

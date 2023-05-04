@@ -1,44 +1,46 @@
 // Top Header
-.top{
+.top {
   display: flex;
   align-items: center;
   padding: 1rem $inner-padding;
   background-color: $gray-color;
-  font-size: 1.4rem;  
+  font-size: 1.4rem;
 }
 
-.status_login{
+.status_login {
   margin-left: auto;
 }
 
-.mobile_contact,.account,.cart{
+.mobile_contact,
+.account,
+.cart {
   display: inline-flex;
   align-items: center;
-  
-  svg{
+
+  svg {
     margin-right: 0.5rem;
-    color: $icon-color;  
+    color: $icon-color;
   }
 }
 
-.mobile_contact{
+.mobile_contact {
   font-weight: 500;
 }
 
-.account+.account{
+.account + .account {
   margin-left: 3rem;
 }
 
-.cart{
+.cart {
   margin-left: 3rem;
 }
 
-.count{
-  color: #ff0000;
+.count {
+  color: $red-color;
 }
 
 // Main Menu
-.main_menu{
+.main_menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,43 +48,111 @@
   padding: 0 $inner-padding;
 }
 
-.logo{
-  a{
+.logo {
+  a {
     display: inline-block;
   }
-  img{
+  img {
     width: 8.6rem;
   }
 }
 
-.nav{
-  &_lst{
+.nav {
+  position: relative;
+
+  &_lst {
     display: flex;
   }
 
-  &_item{
-    &.nav_item{
-      margin-left: 0.5rem;
+  &_item {
+    &.nav_item {
+      &:not(:first-child) {
+        margin-left: 0.5rem;
+      }
     }
 
-    a{
+    a {
       display: inline-block;
       padding: 0.5rem 1rem;
       font-size: 1.5rem;
       font-weight: 700;
       text-transform: uppercase;
     }
+
+    &:hover {
+      .nav_sub {
+        opacity: 1;
+        transform: rotate3d(0, 0, 0, 0deg);
+      }
+    }
+  }
+
+  &_sub {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    z-index: 2;
+    left: -1rem;
+    width: 100%;
+    padding: 2rem 2rem 2rem 1rem;
+    background-color: $white-color;
+    transform: rotate3d(1, 0, 0, -90deg);
+    transform-origin: 0 0 0;
+    transition: all 0.5s ease;
+    opacity: 0;
+
+    &_lst {
+      flex: 0 0 120px;
+      margin-right: 20px;
+    }
+
+    &_item {
+      margin-top: 1rem;
+
+      a {
+        width: 100%;
+        font-size: 1.3rem;
+        color: $icon-color;
+        box-sizing: border-box;
+        transition: color 0.2s;
+
+        &:hover {
+          color: $black-color;
+        }
+      }
+    }
+
+    &_img {
+      flex-grow: 1;
+      height: 100%;
+      margin-top: 0.6rem;
+
+      a {
+        width: 100%;
+        padding: 0;
+        font-weight: 400;
+        text-align: center;
+      }
+    }
+
+    &_title {
+      overflow: hidden;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
   }
 }
 
-.search{
+.search {
   position: relative;
   overflow: hidden;
   width: 30rem;
   border-radius: 2rem;
   border: 1px solid $icon-color;
-  
-  .input_control{
+
+  .input_control {
     width: 100%;
     height: 4rem;
     padding: 0 5.5rem 0 1.5rem;
@@ -90,7 +160,7 @@
   }
 }
 
-.btn_search{
+.btn_search {
   position: absolute;
   top: 0;
   right: 0;
@@ -98,6 +168,6 @@
   width: 4rem;
 }
 
-.box_shadow{
+.box_shadow {
   box-shadow: 0 0 10px rgb(0 0 0 / 20%);
 }

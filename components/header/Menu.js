@@ -1,6 +1,9 @@
 import Link from "next/link";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
+import { menuData } from "../../data/menu";
 import { BsSearch } from "react-icons/bs";
 
 const cx = classNames.bind(styles);
@@ -16,36 +19,56 @@ export default function Menu() {
       </h1>
       <nav className={cx("nav")}>
         <ul className={cx("nav_lst")}>
-          <li className={cx("nav_item")}>
-            <Link href="/shirt">
-              <span>Áo nam</span>
-            </Link>
-          </li>
-          <li className={cx("nav_item")}>
-            <Link href="paints">
-              <span>Quần nam</span>
-            </Link>
-          </li>
-          <li className={cx("nav_item")}>
-            <Link href="/accessory">
-              <span>Phụ kiện</span>
-            </Link>
-          </li>
-          <li className={cx("nav_item")}>
-            <Link href="/album">
-              <span>Album</span>
-            </Link>
-          </li>
-          <li className={cx("nav_item")}>
-            <Link href="/new">
-              <span>Tin tức</span>
-            </Link>
-          </li>
+          {menuData.map((menu, index) => (
+            <li key={index} className={cx("nav_item")}>
+              <Link href={menu.href}>
+                <span>{menu.title}</span>
+              </Link>
+              {menu.subMenu && (
+                <div className={cx("nav_sub")}>
+                  <ul className={cx("nav_sub_lst")}>
+                    {menu.subMenu.map((sub, index) => (
+                      <li key={index} className={cx("nav_sub_item")}>
+                        <Link href={sub.href}>{sub.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <Swiper
+                    loop={true}
+                    slidesPerView={3}
+                    spaceBetween={10}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                      pauseOnMouseEnter: true,
+                    }}
+                    modules={[Autoplay]}
+                    className={cx("nav_sub_img")}
+                  >
+                    {menu.subMenu.map((sub, index) => (
+                      <SwiperSlide key={index}>
+                        <Link href={sub.href}>
+                          <img className="img" src={sub.image} />
+                          <p className={cx("nav_sub_title")}>{sub.title}</p>
+                        </Link>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+              )}
+            </li>
+          ))}
         </ul>
       </nav>
       <div className={cx("search")}>
-        <input type="text" className={cx("input_control")} placeholder="Tìm kiếm..."/>
-        <button type="button" className={cx("btn","btn_search")}><BsSearch/></button>
+        <input
+          type="text"
+          className={cx("input_control")}
+          placeholder="Tìm kiếm..."
+        />
+        <button type="button" className={cx("btn", "btn_search")}>
+          <BsSearch />
+        </button>
       </div>
     </div>
   );
