@@ -13,24 +13,20 @@ export default function ListProduct({ data }) {
     <section className="list_common">
       <h2 className="list_title">{data.title}</h2>
       <ul className="list_area">
-        {data.products.map((item, index) => (
+        {data.map((item, index) => (
           <li className="item" key={index}>
             <div className="item_thumb">
-              <img className="img" src={item.thumb} />
+              <img className="img" src={item.subProducts[0].color.img} />
             </div>
             <div className="item_content">
-              {item.multicolor && (
-                <div className="item_color">
-                  {item.album.map((item, index) => (
-                    <div className="color" key={index}>
-                      <img className="img" src={item.image[0]} />
-                    </div>
-                  ))}
-                </div>
-              )}
-              <strong className="item_name">
-                {item.title} #{item.code}
-              </strong>
+              <div className="item_color">
+                {item.subProducts.map((item, index) => (
+                  <div className="color" key={index}>
+                    <img className="img" src={item.color.img} />
+                  </div>
+                ))}
+              </div>
+              <strong className="item_name">{item.name}</strong>
               <b className="item_price">
                 <NumberFormat
                   thousandSeparator={true}
