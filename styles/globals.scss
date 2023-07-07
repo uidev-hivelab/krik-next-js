@@ -157,9 +157,12 @@ legend {
     margin: 0 auto;
 
     .item {
+      position: relative;
       flex: 0 0 25%;
       max-width: 25%;
+      padding: 2rem 2rem 0;
       border: 1px solid transparent;
+      box-sizing: border-box;
       transition: 0.2s;
 
       &:hover {
@@ -172,7 +175,7 @@ legend {
       }
 
       &_thumb {
-        padding: 2rem;
+        display: block;
       }
 
       &_color {
@@ -180,9 +183,16 @@ legend {
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
+        margin-top: 2rem;
 
         .color {
           width: 3rem;
+          border: 1px solid transparent;
+          cursor: pointer;
+
+          &.is-active {
+            border-color: $black-color;
+          }
         }
         & + .item_name {
           margin-top: 1rem;
@@ -190,7 +200,6 @@ legend {
       }
 
       &_content {
-        position: relative;
         padding-bottom: 6rem;
         text-align: center;
       }

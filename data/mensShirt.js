@@ -1,6 +1,6 @@
 export const mensShirt = [
   {
-    title: "Áo phông",
+    _id: "639f99dfa55dc88574afa920",
     category: "637f589db18563a181bfb346",
     createdAt: "2022-10-09T13:28:08.507Z",
     description: "Áo Phông Regular Cotton",
@@ -70,7 +70,7 @@ export const mensShirt = [
         },
         images: [
           "../img/shirt/t-shirt/t-shirt1-6.webp",
-          "../img/shirt/t-shirt/t-shirt1-7.webp",
+          "../img/shirt/t-shirt/t-shirt1-7.jpeg",
         ],
         sizes: [
           {
@@ -98,6 +98,7 @@ export const mensShirt = [
     ],
   },
   {
+    _id: "639f99dfa55dc88574afa921",
     category: "637f589db18563a181bfb347",
     createdAt: "2022-10-09T13:29:08.507Z",
     description: "Áo Phông Regular Cotton 1004",
@@ -166,7 +167,7 @@ export const mensShirt = [
       {
         color: {
           color: "#fff",
-          img: "../img/shirt/t-shirt/t-shirt1-6.webp",
+          img: "../img/shirt/t-shirt/t-shirt2-6.webp",
         },
         images: [
           "../img/shirt/t-shirt/t-shirt2-6.webp",
