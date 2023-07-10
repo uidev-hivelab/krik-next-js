@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { BsFillCartFill, BsEyeFill } from "react-icons/bs";
 import NumberFormat from "react-number-format";
 
-import ProductSwiper from "./productSwiper";
 import styles from "./ListProduct.module.scss";
 
 const cx = classNames.bind(styles);
@@ -19,9 +18,8 @@ export default function ProductCard({ product }) {
 
   return (
     <li className="item">
-      {/* <ProductSwiper images={images} /> */}
       <a
-        href={`/product/${product.slug}`}
+        href={`/product/${product.slug}?style=${active}`}
         target="_blank"
         className="item_thumb"
       >
@@ -42,7 +40,7 @@ export default function ProductCard({ product }) {
           ))}
         </div>
         <a
-          href={`/product/${product.slug}`}
+          href={`/product/${product.slug}?style=${active}`}
           target="_blank"
           className="item_name"
         >
@@ -62,7 +60,7 @@ export default function ProductCard({ product }) {
             Mua nhanh
           </button>
           <a
-            href={`/product/${product.slug}`}
+            href={`/product/${product.slug}?style=${active}`}
             target="_blank"
             className="btn btn_view_detail"
           >

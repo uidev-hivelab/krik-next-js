@@ -1,0 +1,16 @@
+.product {
+  &_wrap {
+    display: flex;
+    max-width: 1440px;
+    padding: 0 4rem;
+    margin: 0 auto;
+  }
+
+  &_swiper {
+    flex-grow: 1;
+  }
+
+  &_infos {
+    flex: 0 0 380px;
+  }
+}

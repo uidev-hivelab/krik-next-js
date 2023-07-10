@@ -1,4 +1,4 @@
-export const mensShirt = [
+export const products = [
   {
     _id: "639f99dfa55dc88574afa920",
     category: "637f589db18563a181bfb346",
@@ -99,7 +99,7 @@ export const mensShirt = [
   },
   {
     _id: "639f99dfa55dc88574afa921",
-    category: "637f589db18563a181bfb347",
+    category: "637f589db18563a181bfb346",
     createdAt: "2022-10-09T13:29:08.507Z",
     description: "Áo Phông Regular Cotton 1004",
     details: [

@@ -1,0 +1,8 @@
+export const categories = [
+  {
+    _id: "637f589db18563a181bfb346",
+    createdAt: "2022-11-24T11:42:21.174Z",
+    name: "Áo Phông",
+    slug: "Ao-Phong",
+  },
+];
