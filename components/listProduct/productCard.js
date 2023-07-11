@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import React, { useState } from "react";
 import classNames from "classnames/bind";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { BsFillCartFill, BsEyeFill } from "react-icons/bs";
 import NumberFormat from "react-number-format";
 

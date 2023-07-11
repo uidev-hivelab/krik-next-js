@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classNames from "classnames/bind";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
@@ -8,47 +8,54 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
-import styles from "./ProductSwiper.module.scss";
+import styles from "./ProductDetail.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function ProductSwiper({ images }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  // const swiperRef = useRef(null);
-  // useEffect(() => {
-  //   swiperRef.current.swiper.autoplay.stop();
-  // }, [swiperRef]);
   return (
-    <div
-      className={cx("product_wrap")}
-      // onMouseEnter={() => {
-      //   swiperRef.current.swiper.autoplay.start();
-      // }}
-      // onMouseLeave={() => {
-      //   swiperRef.current.swiper.autoplay.stop();
-      //   swiperRef.current.swiper.slideTo(0);
-      // }}
-    >
+    <>
+      <div className={cx("product_list")}>
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          spaceBetween={10}
+          slidesPerView="auto"
+          direction="vertical"
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+        >
+          {images.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className={cx("product_thumb")}>
+                <img className={cx("product_img")} src={item} alt="" />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
       <div className={cx("product_swiper")}>
         <Swiper
           style={{
             "--swiper-navigation-color": "#fff",
             "--swiper-pagination-color": "#fff",
           }}
-          thumbs={{ swiper: thumbsSwiper }}
+          thumbs={{
+            swiper:
+              thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+          }}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="thumb"
         >
           {images.map((item, index) => (
             <SwiperSlide key={index}>
-              {/* <div className="thumb"> */}
-              <img className="img" src={item} />
-              {/* </div> */}
+              <div className={cx("product_thumb")}>
+                <img className={cx("product_img")} src={item} alt="" />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-      <div className={cx("product_infos")}>'ádsdkjfhjk</div>
-    </div>
+    </>
   );
 }
