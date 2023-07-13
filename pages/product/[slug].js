@@ -18,7 +18,7 @@ export default function product({ slug, style }) {
   let product = products.filter((item) => item.slug === slug);
   let category = categories.filter((item) => item._id === product[0].category);
   return (
-    <div className="wrap">
+    <div className="wrap wrap_product_detail">
       <Header />
       <div className={cx("product_detail")}>
         <div className="inner">

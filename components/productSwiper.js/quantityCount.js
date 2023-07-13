@@ -2,36 +2,43 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import { BiMinus, BiPlus } from "react-icons/bi";
 
-import ToolTip from "../toottip.js";
+import ToolTip from "../tooltip.js";
 import styles from "./ProductDetail.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function QuantityCount({ sizes, optionSize }) {
   const [availableQty, setAvailableQty] = useState(1);
-  useEffect(() => {
-    if (optionSize != null) {
-      setAvailableQty(sizes[optionSize].qty);
-    }
-  }, [optionSize]);
   const [count, setCount] = useState(1);
   const handleIncrease = () =>
     count < availableQty ? setCount(count + 1) : count;
   const handleDecrease = () => (count > 1 ? setCount(count - 1) : 1);
-  const handleChange = (e) => setCount(parseInt(e.target.value));
-  if (count > availableQty) {
-    setCount(availableQty);
-  } else if (count < 1) {
+  const handleChange = (e) => {
+    if (e.target.value < 1) {
+      setCount(1);
+    } else if (e.target.value > availableQty) {
+      setCount(availableQty);
+    } else {
+      setCount(parseInt(e.target.value));
+    }
+  };
+
+  useEffect(() => {
     setCount(1);
-  }
-  const handleFocus = (e) => e.target.select();
+    if (optionSize != null) {
+      setAvailableQty(sizes[optionSize].qty);
+    } else {
+      setAvailableQty(1);
+    }
+  }, [optionSize]);
+
   return (
     <div className={cx("product_quantity")}>
       {optionSize != null ? (
         ""
       ) : (
         <div className={cx("product_quantity_tooltip")}>
-          <ToolTip content={`Vui lòng chọn kích thước trước`} />
+          <ToolTip content={`Vui lòng chọn kích thước`} />
         </div>
       )}
       <button
@@ -48,8 +55,8 @@ export default function QuantityCount({ sizes, optionSize }) {
         min={1}
         max={availableQty}
         value={count}
+        disabled={optionSize != null ? false : true}
         onChange={handleChange}
-        onFocus={handleFocus}
       />
       <button
         type="button"

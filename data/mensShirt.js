@@ -6,21 +6,22 @@ export const products = [
     description: "Áo Phông Regular Cotton",
     details: [
       {
-        name: "Chất liệu",
-        content: ["100% Cotton mềm mại, thấm hút mồ hôi tốt, độ bền cao."],
-      },
-      {
-        name: "Kiểu dáng",
+        title: "Thuộc tính sản phẩm",
         content: [
+          "100% Cotton mềm mại, thấm hút mồ hôi tốt, độ bền cao.",
           "Form Classic rộng rãi thoải mái, phù hợp vóc dáng người Việt.",
+          "Màu sắc cơ bản dễ phối đồ, có 2 màu: Đen, Trắng",
+          "Họa tiết chữ in trước ngực tạo điểm nhấn trẻ trung, năng động",
+          "Đẹp hơn khi phối cùng quần âu, quần Kaki, quần Short",
         ],
       },
       {
-        name: "Chi tiết",
+        title: "CHÍNH SÁCH TỪ KRIK",
         content: [
-          "Màu sắc cơ bản dễ phối đồ, có 3 màu: Đen, Trắng, Nâu",
-          "Họa tiết chữ in trước ngực tạo điểm nhấn trẻ trung, năng động",
-          "Đẹp hơn khi phối cùng quần âu, quần Kaki, quần Short",
+          "Đổi hàng trong vòng 5 ngày.",
+          "Giảm đến 15% trên tổng hóa đơn khi mua hàng ( tại cửa hàng ) vào tháng sinh nhật.",
+          "Giao hàng nội thành Hà Nội chỉ từ 15.000đ trong vòng 24 giờ.",
+          "Tích điểm 3-8% giá trị đơn hàng cho mỗi lần mua và trừ tiền vào lần mua tiếp theo.",
         ],
       },
     ],
@@ -35,7 +36,7 @@ export const products = [
         },
         images: [
           "../img/shirt/t-shirt/t-shirt1-1.webp",
-          "../img/shirt/t-shirt/t-shirt1-1.webp",
+          "../img/shirt/t-shirt/t-shirt1-2.webp",
           "../img/shirt/t-shirt/t-shirt1-3.jpeg",
           "../img/shirt/t-shirt/t-shirt1-4.jpeg",
           "../img/shirt/t-shirt/t-shirt1-5.jpeg",
@@ -104,24 +105,23 @@ export const products = [
     description: "Áo Phông Regular Cotton 1004",
     details: [
       {
-        name: "Chất liệu",
+        title: "Thuộc tính sản phẩm",
         content: [
           "73% Cotton mềm mại, thấm hút mồ hôi tốt, độ bền cao",
           "27% Polyester chống nhăn, giữ form dáng tốt, hạn chế bám bụi",
-        ],
-      },
-      {
-        name: "Kiểu dáng",
-        content: [
           "Form Regular rộng thoáng vừa phải, phù hợp vóc dáng người Việt.",
+          "Màu sắc cơ bản dễ phối đồ, có 2 màu: Đen, Trắng",
+          "Thiết kế cổ tròn trẻ trung, năng động",
+          "Đẹp hơn khi phối cùng quần âu, quần Kaki, quần Short",
         ],
       },
       {
-        name: "Chi tiết",
+        title: "CHÍNH SÁCH TỪ KRIK",
         content: [
-          "Màu sắc cơ bản dễ phối đồ, có 3 màu: Đen, Trắng, Nâu",
-          "Họa tiết chữ in trước ngực tạo điểm nhấn trẻ trung, năng động",
-          "Đẹp hơn khi phối cùng quần âu, quần Kaki, quần Short",
+          "Đổi hàng trong vòng 5 ngày.",
+          "Giảm đến 15% trên tổng hóa đơn khi mua hàng ( tại cửa hàng ) vào tháng sinh nhật.",
+          "Giao hàng nội thành Hà Nội chỉ từ 15.000đ trong vòng 24 giờ.",
+          "Tích điểm 3-8% giá trị đơn hàng cho mỗi lần mua và trừ tiền vào lần mua tiếp theo.",
         ],
       },
     ],

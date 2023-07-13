@@ -116,7 +116,7 @@
     justify-content: center;
     width: 3rem;
     height: 3rem;
-    border: 1px solid #dfe0e1;
+    border: 1px solid #c9c9c9;
 
     & + .product_item_size {
       margin-left: 1rem;
@@ -124,7 +124,7 @@
 
     &.product_size_disable {
       pointer-events: none;
-      opacity: 0.5;
+      opacity: 0.3;
     }
     &.product_size_active {
       border-color: #000;
@@ -152,19 +152,28 @@
       width: 5rem;
       height: 100%;
       text-align: center;
-      border: 1px solid #dfe0e1;
-      border-width: 1px 0 1px 0;
+      border: 1px solid #c9c9c9;
+
+      &:disabled {
+        background-color: #fff;
+        opacity: 0.3;
+      }
+
+      & + .product_quantity_btn {
+        border-width: 1px 1px 1px 0;
+      }
     }
 
     &_btn {
       display: inline-block;
       width: 3rem;
       height: 100%;
-      border: 1px solid #dfe0e1;
+      border: 1px solid #c9c9c9;
+      border-width: 1px 0 1px 1px;
       line-height: 3rem;
 
       &:disabled {
-        opacity: 0.5;
+        opacity: 0.3;
         pointer-events: none;
       }
     }
@@ -177,6 +186,49 @@
       width: auto;
       transform: translateX(-50%);
       white-space: nowrap;
+    }
+  }
+
+  &_btn {
+    display: flex;
+    position: relative;
+    margin-top: 2rem;
+    gap: 1rem;
+
+    &_disabled {
+      button {
+        pointer-events: none;
+      }
+    }
+
+    &_tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      width: auto;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    &:hover {
+      .product_btn_tooltip {
+        display: block;
+      }
+    }
+  }
+
+  &_share {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  &_collapse {
+    margin-top: 2rem;
+    &:where(.css-dev-only-do-not-override-1m62vyb).ant-collapse {
+      border-radius: 0;
     }
   }
 }

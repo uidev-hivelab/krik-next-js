@@ -1,11 +1,19 @@
 .btn {
   &_login,
   &_sign_up,
-  &_forgot {
+  &_forgot,
+  &_add_cart,
+  &_buy_now {
     padding: 1rem 2rem;
     background-color: $text-color;
     border-radius: 0.5rem;
     color: $white-color;
+  }
+
+  &_add_cart,
+  &_buy_now {
+    flex: 1;
+    border-radius: 0;
   }
 
   &_login {

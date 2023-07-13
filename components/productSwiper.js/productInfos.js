@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import NumberFormat from "react-number-format";
+import Link from "next/link";
+import { Collapse } from "antd";
 
+import Button from "../button";
 import QuantityCount from "./quantityCount";
+import ToolTip from "../tooltip.js";
+import ProductShare from "./productShare";
 import styles from "./ProductDetail.module.scss";
 
 const cx = classNames.bind(styles);
 
 export default function ProductInfos({ product, style }) {
-  // console.log(product.subProducts[0].sizes);
   const [optionSize, setOptionSize] = useState(null);
   const [optionColor, setOptionColor] = useState(null);
   const [availableQty, setAvailableQty] = useState(null);
@@ -18,15 +22,28 @@ export default function ProductInfos({ product, style }) {
     return accumulator + object.qty;
   }, 0);
 
+  const items = product.details.map((item, index) => {
+    const container = {};
+    container.key = index;
+    container.label = item.title;
+    container.children = item.content.map((detail) => <p>{detail}</p>);
+    return container;
+  });
+
   useEffect(() => {
     if (optionSize != null) {
       setAvailableQty(sizes[optionSize].qty);
     }
+  }, [optionSize]);
+
+  useEffect(() => {
     if (optionColor != null) {
       setSizes(product.subProducts[optionColor].sizes);
       setStyleActive(optionColor);
+      setOptionSize(null);
+      setAvailableQty(null);
     }
-  }, [optionSize, optionColor, sizes]);
+  }, [optionColor, sizes]);
 
   const handleClickOption = (index) => {
     setOptionSize(index);
@@ -49,16 +66,16 @@ export default function ProductInfos({ product, style }) {
         <strong>MÀU SẮC</strong>
         <div className={cx("product_list_color")}>
           {product.subProducts.map((item, index) => (
-            <button
-              type="button"
+            <Link
+              key={index}
+              href={`/product/${product.slug}?style=${index}`}
               className={cx(
                 "product_item_color",
                 index == styleActive ? "product_color_active" : ""
               )}
-              style={{ backgroundColor: item.color.color }}
-              key={index}
+              style={{ background: item.color.color }}
               onClick={() => setOptionColor(index)}
-            ></button>
+            ></Link>
           ))}
         </div>
       </div>
@@ -82,9 +99,29 @@ export default function ProductInfos({ product, style }) {
         </div>
       </div>
       <p className={cx("product_number_available")}>
-        Số lượng còn lại: <strong>{availableQty}</strong>
+        Số lượng có sẵn: <strong>{availableQty}</strong>
       </p>
       <QuantityCount optionSize={optionSize} sizes={sizes} />
+      <div
+        className={cx(
+          "product_btn",
+          optionSize == null ? "product_btn_disabled" : ""
+        )}
+      >
+        <Button type="button" classes="btn_add_cart" text="THÊM VÀO GIỎ HÀNG" />
+        <Button type="button" classes="btn_buy_now" text="BUY NOW" />
+        {optionSize != null ? (
+          ""
+        ) : (
+          <div className={cx("product_btn_tooltip")}>
+            <ToolTip content={`Vui lòng chọn kích thước`} />
+          </div>
+        )}
+      </div>
+      <ProductShare />
+      <div className={cx("product_collapse")}>
+        <Collapse items={items} />
+      </div>
     </div>
   );
 }
