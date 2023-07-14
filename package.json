@@ -32,6 +32,7 @@
     "react-icons": "^4.7.1",
     "react-number-format": "4.9.3",
     "react-redux": "^8.0.5",
+    "react-share": "^4.4.1",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0",

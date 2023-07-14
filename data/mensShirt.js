@@ -110,7 +110,7 @@ export const products = [
           "73% Cotton mềm mại, thấm hút mồ hôi tốt, độ bền cao",
           "27% Polyester chống nhăn, giữ form dáng tốt, hạn chế bám bụi",
           "Form Regular rộng thoáng vừa phải, phù hợp vóc dáng người Việt.",
-          "Màu sắc cơ bản dễ phối đồ, có 2 màu: Đen, Trắng",
+          "Màu sắc cơ bản dễ phối đồ, có 2 màu: Nâu, Trắng",
           "Thiết kế cổ tròn trẻ trung, năng động",
           "Đẹp hơn khi phối cùng quần âu, quần Kaki, quần Short",
         ],
@@ -136,7 +136,7 @@ export const products = [
         },
         images: [
           "../img/shirt/t-shirt/t-shirt2-1.jpeg",
-          "../img/shirt/t-shirt/t-shirt2-1.jpeg",
+          "../img/shirt/t-shirt/t-shirt2-2.jpeg",
           "../img/shirt/t-shirt/t-shirt2-3.jpeg",
           "../img/shirt/t-shirt/t-shirt2-4.jpeg",
           "../img/shirt/t-shirt/t-shirt2-5.jpeg",

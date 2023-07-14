@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames/bind";
+import { useRouter } from "next/router";
 import NumberFormat from "react-number-format";
 import Link from "next/link";
 import { Collapse } from "antd";
@@ -9,10 +10,12 @@ import QuantityCount from "./quantityCount";
 import ToolTip from "../tooltip.js";
 import ProductShare from "./productShare";
 import styles from "./ProductDetail.module.scss";
+import axios from "axios";
 
 const cx = classNames.bind(styles);
 
 export default function ProductInfos({ product, style }) {
+  const router = useRouter();
   const [optionSize, setOptionSize] = useState(null);
   const [optionColor, setOptionColor] = useState(null);
   const [availableQty, setAvailableQty] = useState(null);
@@ -26,7 +29,9 @@ export default function ProductInfos({ product, style }) {
     const container = {};
     container.key = index;
     container.label = item.title;
-    container.children = item.content.map((detail) => <p>{detail}</p>);
+    container.children = item.content.map((detail, index) => (
+      <p key={index}>{detail}</p>
+    ));
     return container;
   });
 
@@ -48,6 +53,15 @@ export default function ProductInfos({ product, style }) {
   const handleClickOption = (index) => {
     setOptionSize(index);
   };
+
+  const addToCart = async () => {
+    const { data } = await axios.get(
+      `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
+    );
+
+    console.log(data);
+  };
+
   return (
     <div className={cx("product_infos")}>
       <h3 className={cx("product_title")}>{product.name}</h3>
@@ -108,7 +122,12 @@ export default function ProductInfos({ product, style }) {
           optionSize == null ? "product_btn_disabled" : ""
         )}
       >
-        <Button type="button" classes="btn_add_cart" text="THÊM VÀO GIỎ HÀNG" />
+        <Button
+          type="button"
+          classes="btn_add_cart"
+          text="THÊM VÀO GIỎ HÀNG"
+          onClick={() => addToCart()}
+        />
         <Button type="button" classes="btn_buy_now" text="BUY NOW" />
         {optionSize != null ? (
           ""

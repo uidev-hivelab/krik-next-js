@@ -44,7 +44,7 @@ export default function QuantityCount({ sizes, optionSize }) {
       <button
         type="button"
         className={cx("product_quantity_btn")}
-        disabled={count <= 1 ? true : false}
+        disabled={count <= 1}
         onClick={handleDecrease}
       >
         <BiMinus />
@@ -55,13 +55,13 @@ export default function QuantityCount({ sizes, optionSize }) {
         min={1}
         max={availableQty}
         value={count}
-        disabled={optionSize != null ? false : true}
+        disabled={optionSize == null}
         onChange={handleChange}
       />
       <button
         type="button"
         className={cx("product_quantity_btn")}
-        disabled={count >= availableQty ? true : false}
+        disabled={count >= availableQty}
         onClick={handleIncrease}
       >
         <BiPlus />
