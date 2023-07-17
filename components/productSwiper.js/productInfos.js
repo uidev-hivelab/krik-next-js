@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 import classNames from "classnames/bind";
-import { useRouter } from "next/router";
 import NumberFormat from "react-number-format";
 import Link from "next/link";
 import { Collapse } from "antd";
@@ -10,12 +11,12 @@ import QuantityCount from "./quantityCount";
 import ToolTip from "../tooltip.js";
 import ProductShare from "./productShare";
 import styles from "./ProductDetail.module.scss";
-import axios from "axios";
+import { addToCart } from "../../store/cartSlice";
 
 const cx = classNames.bind(styles);
 
 export default function ProductInfos({ product, style }) {
-  const router = useRouter();
+  const dispatch = useDispatch();
   const [optionSize, setOptionSize] = useState(null);
   const [optionColor, setOptionColor] = useState(null);
   const [availableQty, setAvailableQty] = useState(null);
@@ -24,6 +25,7 @@ export default function ProductInfos({ product, style }) {
   const maxQty = sizes.reduce((accumulator, object) => {
     return accumulator + object.qty;
   }, 0);
+  const { cart } = useSelector((state) => ({ ...state }));
 
   const items = product.details.map((item, index) => {
     const container = {};
@@ -54,12 +56,14 @@ export default function ProductInfos({ product, style }) {
     setOptionSize(index);
   };
 
-  const addToCart = async () => {
+  const addToCartHandler = async () => {
     const { data } = await axios.get(
-      `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
+      `/api/product/${product._id}?style=${styleActive}&size=${optionSize}`
     );
-
-    console.log(data);
+    let _uid = `${data._id}_${styleActive}_${optionSize}`;
+    console.log(cart);
+    // exist = cart.cartItems.find((p) => p._uid === _uid);
+    dispatch(addToCart({ ...data, optionSize, _uid }));
   };
 
   return (
@@ -126,7 +130,7 @@ export default function ProductInfos({ product, style }) {
           type="button"
           classes="btn_add_cart"
           text="THÊM VÀO GIỎ HÀNG"
-          onClick={() => addToCart()}
+          onClick={() => addToCartHandler()}
         />
         <Button type="button" classes="btn_buy_now" text="BUY NOW" />
         {optionSize != null ? (

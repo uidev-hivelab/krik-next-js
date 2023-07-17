@@ -5,6 +5,7 @@ import db from "../../../../utils/db";
 const handler = nextConnect();
 
 handler.get(async (req, res) => {
+  console.log(req);
   try {
     db.connectDb();
     const id = req.query.id;
@@ -13,17 +14,17 @@ handler.get(async (req, res) => {
     const product = await Product.findById(id).lean();
     db.disconnectDb();
     return res.json({
-      _id: product._id,
+      // _id: product._id,
       style: Number(style),
-      name: product.name,
-      description: product.description,
-      slug: product.slug,
-      category: product.category,
-      images: product.subProducts[style].images,
-      color: product.subProducts[style].color,
-      size: product.subProducts[style].sizes[size].size,
-      price,
-      quantity: product.subProducts[style].sizes[size].qty,
+      // name: product.name,
+      // description: product.description,
+      // slug: product.slug,
+      // category: product.category,
+      // images: product.subProducts[style].images,
+      // color: product.subProducts[style].color,
+      // size: product.subProducts[style].sizes[size].size,
+      // price,
+      // quantity: product.subProducts[style].sizes[size].qty,
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });

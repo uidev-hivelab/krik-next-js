@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const { ObjectID } = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 const productSchema = new mongoose.Schema({
   name: {
