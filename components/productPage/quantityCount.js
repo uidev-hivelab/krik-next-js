@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import { BiMinus, BiPlus } from "react-icons/bi";
 
-import ToolTip from "../tooltip.js";
+import ToolTip from "../tooltip.js/index.js";
 import styles from "./ProductDetail.module.scss";
 
 const cx = classNames.bind(styles);

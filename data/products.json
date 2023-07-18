@@ -1,0 +1,207 @@
+[
+  {
+    "_id": "639f99dfa55dc88574afa920",
+    "category": {
+      "$oid": "637f589db18563a181bfb346"
+    },
+    "createdAt": "2022-10-09T13:28:08.507Z",
+    "description": "Áo Phông Regular Cotton",
+    "details": [
+      {
+        "title": "Thuộc tính sản phẩm",
+        "content": [
+          "100% Cotton mềm mại, thấm hút mồ hôi tốt, độ bền cao.",
+          "Form Classic rộng rãi thoải mái, phù hợp vóc dáng người Việt.",
+          "Màu sắc cơ bản dễ phối đồ, có 2 màu: Đen, Trắng",
+          "Họa tiết chữ in trước ngực tạo điểm nhấn trẻ trung, năng động",
+          "Đẹp hơn khi phối cùng quần âu, quần Kaki, quần Short"
+        ]
+      },
+      {
+        "title": "CHÍNH SÁCH TỪ KRIK",
+        "content": [
+          "Đổi hàng trong vòng 5 ngày.",
+          "Giảm đến 15% trên tổng hóa đơn khi mua hàng ( tại cửa hàng ) vào tháng sinh nhật.",
+          "Giao hàng nội thành Hà Nội chỉ từ 15.000đ trong vòng 24 giờ.",
+          "Tích điểm 3-8% giá trị đơn hàng cho mỗi lần mua và trừ tiền vào lần mua tiếp theo."
+        ]
+      }
+    ],
+    "name": "Áo Phông Regular Cotton 2037",
+    "price": 289000,
+    "slug": "Ao-Phong-Regular-Cotton-2037",
+    "subProducts": [
+      {
+        "color": {
+          "color": "#000",
+          "img": "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700837/products/ie8th14jdv6meambfgkn.webp"
+        },
+        "images": [
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700837/products/ie8th14jdv6meambfgkn.webp",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700837/products/yn1qa8dseneptno41n7p.webp",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700837/products/zslzizigbwytuxfng74b.jpg",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700837/products/iw3ijo2lsprkxvnqa5yy.jpg",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700837/products/y5wo1bkgjhztsc7wvulc.jpg"
+        ],
+        "size": [
+          {
+            "_id": "6342cc683a608a950d7e8056",
+            "size": "S",
+            "qty": 35
+          },
+          {
+            "_id": "6342cc683a608a950d7e8057",
+            "size": "M",
+            "qty": 22
+          },
+          {
+            "_id": "6342cc683a608a950d7e8058",
+            "size": "L",
+            "qty": 32
+          },
+          {
+            "_id": "6342cc683a608a950d7e8059",
+            "size": "XL",
+            "qty": 15
+          }
+        ]
+      },
+      {
+        "color": {
+          "color": "#fff",
+          "img": "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700837/products/hvqwfzqz49dowh3kznun.webp"
+        },
+        "images": [
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700837/products/hvqwfzqz49dowh3kznun.webp",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700838/products/i7fpypmqalnlwoylpazd.jpg"
+        ],
+        "size": [
+          {
+            "_id": "6342cea53a608a950d7e8070",
+            "size": "S",
+            "qty": 0
+          },
+          {
+            "_id": "6342cea53a608a950d7e8071",
+            "size": "M",
+            "qty": 0
+          },
+          {
+            "_id": "6342cea53a608a950d7e8072",
+            "size": "L",
+            "qty": 12
+          },
+          {
+            "_id": "6342cea53a608a950d7e8073",
+            "size": "XL",
+            "qty": 3
+          }
+        ]
+      }
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "639f99dfa55dc88574afa921",
+    "category": {
+      "$oid": "637f589db18563a181bfb346"
+    },
+    "createdAt": "2022-10-09T13:29:08.507Z",
+    "description": "Áo Phông Regular Cotton 1004",
+    "details": [
+      {
+        "title": "Thuộc tính sản phẩm",
+        "content": [
+          "73% Cotton mềm mại, thấm hút mồ hôi tốt, độ bền cao",
+          "27% Polyester chống nhăn, giữ form dáng tốt, hạn chế bám bụi",
+          "Form Regular rộng thoáng vừa phải, phù hợp vóc dáng người Việt.",
+          "Màu sắc cơ bản dễ phối đồ, có 2 màu: Nâu, Trắng",
+          "Thiết kế cổ tròn trẻ trung, năng động",
+          "Đẹp hơn khi phối cùng quần âu, quần Kaki, quần Short"
+        ]
+      },
+      {
+        "title": "CHÍNH SÁCH TỪ KRIK",
+        "content": [
+          "Đổi hàng trong vòng 5 ngày.",
+          "Giảm đến 15% trên tổng hóa đơn khi mua hàng ( tại cửa hàng ) vào tháng sinh nhật.",
+          "Giao hàng nội thành Hà Nội chỉ từ 15.000đ trong vòng 24 giờ.",
+          "Tích điểm 3-8% giá trị đơn hàng cho mỗi lần mua và trừ tiền vào lần mua tiếp theo."
+        ]
+      }
+    ],
+    "name": "Áo Phông Regular Cotton 1004",
+    "price": 269000,
+    "slug": "Ao-Phong-Regular-Cotton-1004",
+    "subProducts": [
+      {
+        "color": {
+          "color": "#c4a08e",
+          "img": "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700838/products/fhvsgt7pvjs1hljmkvnn.jpg"
+        },
+        "images": [
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700838/products/fhvsgt7pvjs1hljmkvnn.jpg",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700838/products/weii8xjsl6o21elsocnb.jpg",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700838/products/gtejkvftdz70a1k0pz7b.jpg",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700839/products/pjkypmw0r4bwbe9aksyi.jpg",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700838/products/d8rnwywbxdqi3tigcwaq.jpg"
+        ],
+        "size": [
+          {
+            "_id": "6342cc683a608a950d7e8060",
+            "size": "S",
+            "qty": 50
+          },
+          {
+            "_id": "6342cc683a608a950d7e8061",
+            "size": "M",
+            "qty": 34
+          },
+          {
+            "_id": "6342cc683a608a950d7e8062",
+            "size": "L",
+            "qty": 38
+          },
+          {
+            "_id": "6342cc683a608a950d7e8063",
+            "size": "XL",
+            "qty": 18
+          }
+        ]
+      },
+      {
+        "color": {
+          "color": "#fff",
+          "img": "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700839/products/hm3ljyrmrayzidrpofqs.webp"
+        },
+        "images": [
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700839/products/hm3ljyrmrayzidrpofqs.webp",
+          "https://res.cloudinary.com/dedqfmw4q/image/upload/v1689700839/products/xjqe9mpxoossstdsymsk.jpg"
+        ],
+        "size": [
+          {
+            "_id": "6342cea53a608a950d7e8074",
+            "size": "S",
+            "qty": 40
+          },
+          {
+            "_id": "6342cea53a608a950d7e8075",
+            "size": "M",
+            "qty": 44
+          },
+          {
+            "_id": "6342cea53a608a950d7e8076",
+            "size": "L",
+            "qty": 30
+          },
+          {
+            "_id": "6342cea53a608a950d7e8077",
+            "size": "XL",
+            "qty": 20
+          }
+        ]
+      }
+    ],
+    "__v": 0
+  }
+]

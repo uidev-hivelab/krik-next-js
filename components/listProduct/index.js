@@ -6,12 +6,12 @@ import styles from "./ListProduct.module.scss";
 
 const cx = classNames.bind(styles);
 
-export default function ListProduct({ data }) {
+export default function ListProduct({ products }) {
   return (
     <section className="list_common">
       <h2 className="list_title">Áo Phông</h2>
       <ul className="list_area">
-        {data.map((product) => (
+        {products.map((product) => (
           <ProductCard product={product} key={product._id} />
         ))}
       </ul>

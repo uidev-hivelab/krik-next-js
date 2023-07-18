@@ -6,12 +6,12 @@ import NumberFormat from "react-number-format";
 import Link from "next/link";
 import { Collapse } from "antd";
 
-import Button from "../button";
-import QuantityCount from "./quantityCount";
-import ToolTip from "../tooltip.js";
-import ProductShare from "./productShare";
-import styles from "./ProductDetail.module.scss";
-import { addToCart } from "../../store/cartSlice";
+import Button from "../../button";
+import QuantityCount from "../quantityCount";
+import ToolTip from "../../tooltip.js/index.js";
+import ProductShare from "../productShare";
+import styles from "../ProductDetail.module.scss";
+import { addToCart } from "../../../store/cartSlice";
 
 const cx = classNames.bind(styles);
 
@@ -21,7 +21,7 @@ export default function ProductInfos({ product, style }) {
   const [optionColor, setOptionColor] = useState(null);
   const [availableQty, setAvailableQty] = useState(null);
   const [styleActive, setStyleActive] = useState(style);
-  const [sizes, setSizes] = useState(product.subProducts[style].sizes);
+  const [sizes, setSizes] = useState(product.subProducts[style].size);
   const maxQty = sizes.reduce((accumulator, object) => {
     return accumulator + object.qty;
   }, 0);
@@ -58,12 +58,14 @@ export default function ProductInfos({ product, style }) {
 
   const addToCartHandler = async () => {
     const { data } = await axios.get(
-      `/api/product/${product._id}?style=${styleActive}&size=${optionSize}`
+      // `/api/product/${product._id}?style=${styleActive}&size=${optionSize}`
+      `/api/product/${product._id}?style=${styleActive}`
     );
     let _uid = `${data._id}_${styleActive}_${optionSize}`;
-    console.log(cart);
+    console.log(data);
     // exist = cart.cartItems.find((p) => p._uid === _uid);
-    dispatch(addToCart({ ...data, optionSize, _uid }));
+    // dispatch(addToCart({ ...data, optionSize, _uid }));
+    dispatch(addToCart({ ...data }));
   };
 
   return (

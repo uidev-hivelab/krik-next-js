@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs, EffectFade } from "swiper";
 
-import styles from "./ProductDetail.module.scss";
+import styles from "../ProductDetail.module.scss";
 
 const cx = classNames.bind(styles);
 
